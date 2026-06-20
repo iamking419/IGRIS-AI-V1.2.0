@@ -116,7 +116,7 @@ export default function AuthModal({
       });
 
       // Redirect user to: /dashboard
-      window.location.href = "/";
+      window.location.href = "/dashboard";
     } catch (err: any) {
       console.error(err);
       setErrorMsg(err.message || "Credential backend alignment failed.");
