@@ -77,4 +77,21 @@ IGRIS is not just a chatbot — it is a **command system interface** designed to
 
 ---
 
-## 📂 Project Structure
+
+---
+
+## 📦 Installation
+
+```bash
+# clone repo
+git clone https://github.com/your-username/igris.git
+
+# enter project
+cd igris
+
+# install dependencies
+npm install
+
+# run dev server
+npm run dev
+
