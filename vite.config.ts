@@ -1,22 +1,46 @@
-import tailwindcss from '@tailwindcss/vite';
-import react from '@vitejs/plugin-react';
-import path from 'path';
-import {defineConfig} from 'vite';
+import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react";
+import path from "path";
+import { defineConfig } from "vite";
 
 export default defineConfig(() => {
   return {
+    // 🔥 Critical for correct asset loading in production
+    base: "/",
+
     plugins: [react(), tailwindcss()],
+
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        // ✅ Proper alias to src folder
+        "@": path.resolve(__dirname, "src"),
       },
     },
+
     server: {
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
-      hmr: process.env.DISABLE_HMR !== 'true',
-      // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
-      watch: process.env.DISABLE_HMR === 'true' ? null : {},
+      // Dev hot reload control (safe)
+      hmr: process.env.DISABLE_HMR !== "true",
+
+      // Disable watch only when explicitly needed (AI environments)
+      watch: process.env.DISABLE_HMR === "true" ? null : {},
+    },
+
+    build: {
+      // 🔥 Ensures clean production output
+      outDir: "dist",
+
+      // Helps prevent broken long asset caching issues
+      assetsDir: "assets",
+
+      // Safer builds for deployment
+      sourcemap: false,
+
+      // Prevents weird chunk splitting issues on some hosts
+      rollupOptions: {
+        output: {
+          manualChunks: undefined,
+        },
+      },
     },
   };
 });
