@@ -108,19 +108,15 @@ export default function AuthModal({
       localStorage.setItem("igris_token", data.access_token);
       localStorage.setItem("igris_user", JSON.stringify(data.user));
 
-      // Invoke original authenticate callback so state gets updated:
+      // Invoke authenticate callback so state gets updated
       onAuthenticate({
         username: data.user.username,
         email: data.user.email,
         token: data.access_token
       });
 
-      // Redirect user to: /dashboard
-      onAuthenticate({
-        username: data.user.username,
-        email: data.user.email,
-        token: data.access_token
-      });
+      // Close modal on success
+      onClose();
     } catch (err: any) {
       console.error(err);
       setErrorMsg(err.message || "Credential backend alignment failed.");
