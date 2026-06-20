@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* Enable buttery-smooth kinetic layout scrolling with inertia on all mobile devices */
+.overflow-y-auto, 
+.scrollbar-thin {
+  -webkit-overflow-scrolling: touch !important;
+  scroll-behavior: smooth;
+  overscroll-behavior-y: contain;
+}
+
+/* Disable ugly mobile highlight rectangles on active buttons and bubbles */
+* {
+  -webkit-tap-highlight-color: transparent;
+}

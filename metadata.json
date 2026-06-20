@@ -1,0 +1,6 @@
+{
+  "name": "Igris - The Kings AI System",
+  "description": "Born from ambition and forged through countless lines of code, Igris stands as a powerful AI system built to assist, automate, and innovate. Combining intelligence, speed, and reliability, Igris empowers users to push beyond limits and bring their ideas to life.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

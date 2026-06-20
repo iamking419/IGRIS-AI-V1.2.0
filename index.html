@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content" />
+    <title>IGRIS — The King's AI System</title>
+    <!-- Disable Android autofill -->
+    <meta name="autofill" content="false" />
+    <meta name="description" content="Born from ambition and forged through countless lines of code, Igris stands as a powerful AI system built to assist, automate, and innovate." />
+    <meta name="author" content="King" />
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="background-color" content="#09090b" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="IGRIS — The King's AI System" />
+    <meta property="og:description" content="AI built to assist, automate, and innovate." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/igris_icon.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/igris_icon.png" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- App Icons - Multiple sizes for all platforms -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/igris_icon_16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/igris_icon_32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/igris_icon_192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/igris_icon_512.png" />
+
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/igris_icon_180.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/igris_icon_192.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="/igris_icon_512.png" />
+
+    <!-- iOS Specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="IGRIS AI" />
+
+    <!-- Safari Pinned Tab -->
+    <link rel="mask-icon" href="/igris_icon.svg" color="#09090b" />
+
+    <!-- MS Tiles (Windows) -->
+    <meta name="msapplication-TileColor" content="#09090b" />
+    <meta name="msapplication-TileImage" content="/igris_icon_144.png" />
+    <meta name="msapplication-config" content="none" />
+
+    <!-- Prevent browser color issues -->
+    <style>
+      html, body, #root {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100%;
+        background: #09090b;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        overscroll-behavior: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('IGRIS Service Worker registered:', registration.scope);
+            })
+            .catch((error) => {
+              console.log('IGRIS Service Worker registration failed:', error);
+            });
+        });
+      }
+    </script>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
