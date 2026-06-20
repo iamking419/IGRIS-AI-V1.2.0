@@ -11,7 +11,7 @@ export default function GoogleOAuthProviderWrapper({
   // but the app won't crash with "must be used within GoogleOAuthProvider".
   const key =
     (import.meta as any).env?.VITE_GOOGLE_OAUTH_CLIENT_ID ||
-    "736442979434-025v4c5m7nkch91rok9jprsuegk9i48m.apps.googleusercontent.com";
+    "__MISSING_GOOGLE_OAUTH_CLIENT_ID__";
 
   return <GoogleOAuthProvider clientId={key}>{children}</GoogleOAuthProvider>;
 }
