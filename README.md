@@ -7,8 +7,8 @@ IGRIS is a next-generation AI-powered tactical assistant built for automation, i
 ---
 
 ## ⚡ Live Demo
-🌐 https://igris-ai.vercel.app  
-*(Replace with your actual Vercel link)*
+🌐 https://igris-core.vercel.app  
+
 
 ---
 
